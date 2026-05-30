@@ -1,0 +1,86 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --sky-deep: #0a1628;
+  --sky-mid: #0d2044;
+  --sky-accent: #1a3a6e;
+  --sky-glow: #2255a4;
+  --gold: #f0c040;
+  --gold-hover: #ffd060;
+  --gold-dim: #b08820;
+  --ice: #c8e8ff;
+  --mist: rgba(200, 230, 255, 0.08);
+  --mist-strong: rgba(200, 230, 255, 0.15);
+  --text-bright: #eef4ff;
+  --text-mid: #8aaacf;
+  --text-dim: #4d6a8a;
+  --danger: #ff6b6b;
+  --success: #4ecb8d;
+  --warn: #ffb347;
+  --radius: 20px;
+  --radius-sm: 12px;
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(200, 230, 255, 0.12);
+  --font-display: 'NamaFont', sans-serif;
+  --font-body: 'NamaFont', sans-serif;
+  --font-mono: 'NamaFont', monospace;
+}
+
+html, body {
+  min-height: 100vh;
+  background: var(--sky-deep);
+  color: var(--text-bright);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 0%, rgba(34, 85, 164, 0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 30% at 80% 100%, rgba(16, 40, 90, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 50% at 90% 20%, rgba(240, 192, 64, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50%       { opacity: var(--brightness); transform: scale(1); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes riseUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25%       { transform: translateX(-6px); }
+  75%       { transform: translateX(6px); }
+}

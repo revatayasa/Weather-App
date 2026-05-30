@@ -1,0 +1,85 @@
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(16px);
+  padding: 1.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,232,255,0.2), transparent);
+}
+
+.title {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: var(--font-mono);
+  margin-bottom: 10px;
+}
+
+.value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-bright);
+  line-height: 1.1;
+}
+
+.unit {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.sub {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+.bgIcon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* UV bar */
+.uvBar {
+  height: 6px;
+  background: linear-gradient(90deg, #00e676, #ffee58, #ff7043, #b71c1c);
+  border-radius: 3px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.uvMarker {
+  position: absolute;
+  top: -4px;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 6px rgba(255,255,255,0.6);
+}
+
+@media (max-width: 480px) {
+  .row { grid-template-columns: 1fr 1fr; }
+}

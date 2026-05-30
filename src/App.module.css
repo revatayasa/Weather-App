@@ -1,0 +1,138 @@
+.app {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem 4rem;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  animation: fadeDown 0.6s ease;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  letter-spacing: -0.03em;
+  color: var(--text-bright);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  flex-shrink: 0;
+}
+
+.tagline {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 6px;
+  font-family: var(--font-mono);
+}
+
+/* Loading */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 3rem;
+  color: var(--text-mid);
+  font-size: 0.9rem;
+  font-family: var(--font-mono);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--card-border);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Error banner */
+.errorBanner {
+  background: rgba(255, 107, 107, 0.12);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 12px 20px;
+  color: #ff9b9b;
+  font-size: 0.9rem;
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Weather panel */
+.panel {
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: riseUp 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Placeholder */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 4rem 2rem;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.placeholderIcon {
+  font-size: 4rem;
+  opacity: 0.3;
+  animation: float 4s ease-in-out infinite;
+}
+
+.placeholderText {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+/* Animations */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes riseUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
